@@ -5,7 +5,7 @@ import hangman_arts
 n=random.randint(0,len(hangman_words.word_list))
 
 word=hangman_words.word_list[n]
-# word='khandagale'
+word='khandagale'
 lives=6
 word_size=len(word)
 
@@ -15,15 +15,17 @@ print(hangman_arts.logo)
 # To fill dash in display accroding to word-size
 display= []
 while word_size!=0:
-  display.append('_')
-  word_size-=1
+      display.append('_')
+      word_size-=1
+
 print(hangman_arts.stages[lives])
 
 # Challange 3 
 # While loop will run till dash is present in display
 while '_' in display and lives!=0:
      # Challange 1
-    guess=input("Guss a word : ").lower()
+    print(f'{display.count('_')} letters left! \n\n{display}')
+    guess=input("\nGuss a letter : ").lower()
     
     dupl=[]
     for index,letter in enumerate(word):
@@ -43,10 +45,4 @@ while '_' in display and lives!=0:
 
 if lives>0:
   print('You WON!')
-
-  
-
-
-
-
 
